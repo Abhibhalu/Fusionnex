@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check Secrets
+        run: |
+          echo "ACCESS_KEY_EXISTS=${{ secrets.AWS_ACCESS_KEY_ID != '' }}"
+          echo "SECRET_KEY_EXISTS=${{ secrets.AWS_SECRET_ACCESS_KEY != '' }}"
+
       - name: Checkout code
         uses: actions/checkout@v3
 
